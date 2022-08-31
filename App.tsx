@@ -26,6 +26,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { TestComponent } from 'BookingEngine/src/components';
 
 const Section: React.FC<
   PropsWithChildren<{
@@ -35,6 +36,7 @@ const Section: React.FC<
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
+      <TestComponent/>
       <Text
         style={[
           styles.sectionTitle,
