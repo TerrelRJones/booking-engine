@@ -10,6 +10,7 @@
       "BookingEngine/*": ["./*"]
     },
     "esModuleInterop": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "types": ["node"]
   }
 }

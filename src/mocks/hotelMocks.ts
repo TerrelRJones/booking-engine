@@ -2,7 +2,7 @@ import {
   BedSize,
   CalanderAvailability,
   Hotels,
-} from '../const/models/hotelModels';
+} from '../types/hotelModels';
 
 const hotels: Hotels = {
   hotels: [
@@ -24,7 +24,6 @@ const hotels: Hotels = {
       images: [
         {
           url: 'https://www.beachimg.com',
-          title: 'beach',
         },
       ],
       resortDetails: {
@@ -37,9 +36,12 @@ const hotels: Hotels = {
           id: '25',
           priceNight: '$400',
           bedType: BedSize.KING,
-          images: [{ url: '', title: '' }],
+          images: [{ url: '' }],
           summary: 'awesome room',
-          availability: [{ date: '5/12/2020', isBookable: true }],
+          availability: [
+            { date: '5/12/2020', isBookable: true },
+            { date: '5/12/2020', isBookable: true },
+          ],
         },
       ],
     },
@@ -52,7 +54,7 @@ const calanderAvailability: CalanderAvailability = {
       id: '25',
       priceNight: '$400',
       bedType: BedSize.KING,
-      images: [{ url: '', title: '' }],
+      images: [{ url: '' }],
       summary: 'awesome room',
       availability: [{ date: '5/12/2020', isBookable: true }],
     },
