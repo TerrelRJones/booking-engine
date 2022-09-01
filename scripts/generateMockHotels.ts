@@ -90,4 +90,6 @@ async function main() {
   );
 }
 
+//to execute
+//ts-node ./scripts/generateMockHotels.ts
 main();
