@@ -3,11 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run start\" \"npm run ios\"",
+    "dev": "concurrently \"npm run start\" \"npm run ios\" \"npm run jsonServer\"",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
+    "jsonServer": "json-server --watch db.json --port 3004",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
@@ -18,9 +19,11 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
+    "@faker-js/faker": "^7.5.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^26.0.23",
+    "@types/node": "^18.7.14",
     "@types/react-native": "^0.69.5",
     "@types/react-test-renderer": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.29.0",

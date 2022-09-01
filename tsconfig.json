@@ -9,5 +9,8 @@
     "paths": {
       "BookingEngine/*": ["./*"]
     },
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "types": ["node"]
   }
 }
