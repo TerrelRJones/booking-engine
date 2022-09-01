@@ -18,9 +18,17 @@ export interface CalanderAvailability {
   rooms: Room[];
 }
 
+export enum BedSize {
+  KING = 'king',
+  QUEEN = 'queen',
+  FULL = 'full',
+  TWIN = 'twin',
+}
+
 export interface Room {
   id: string;
   priceNight: string;
+  bedType: BedSize;
   images: Image[];
   summary: string;
   availability: DateAvailability[];

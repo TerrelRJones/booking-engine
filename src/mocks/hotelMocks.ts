@@ -1,4 +1,8 @@
-import { CalanderAvailability, Hotels } from "../const/models/hotelModels";
+import {
+  BedSize,
+  CalanderAvailability,
+  Hotels,
+} from '../const/models/hotelModels';
 
 const hotels: Hotels = {
   hotels: [
@@ -32,6 +36,7 @@ const hotels: Hotels = {
         {
           id: '25',
           priceNight: '$400',
+          bedType: BedSize.KING,
           images: [{ url: '', title: '' }],
           summary: 'awesome room',
           availability: [{ date: '5/12/2020', isBookable: true }],
@@ -46,6 +51,7 @@ const calanderAvailability: CalanderAvailability = {
     {
       id: '25',
       priceNight: '$400',
+      bedType: BedSize.KING,
       images: [{ url: '', title: '' }],
       summary: 'awesome room',
       availability: [{ date: '5/12/2020', isBookable: true }],
