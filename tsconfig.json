@@ -9,9 +9,5 @@
     "paths": {
       "BookingEngine/*": ["./*"]
     },
-    "types":[
-      "@types/styled-components-react-native"
-    ]
   }
-
 }

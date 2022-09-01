@@ -27,8 +27,6 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { StyledText } from './src/components/TestComponent.styled';
-
 const Section: React.FC<
   PropsWithChildren<{
     title: string;
@@ -37,8 +35,6 @@ const Section: React.FC<
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
-      <StyledText>Text Component Test</StyledText>
-
       <Text
         style={[
           styles.sectionTitle,
