@@ -36,7 +36,10 @@ const generateHotels = (num: number) => {
     });
     num--;
   }
-  return hotels;
+  const hotelsObj = {
+    hotels,
+  };
+  return hotelsObj;
 };
 
 const generateRooms = (num: number) => {
