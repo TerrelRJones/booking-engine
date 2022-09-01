@@ -62,7 +62,7 @@ const generateAvailability = (): DateAvailability[] => {
   let currentDate = new Date();
 
   const datesAvailability: DateAvailability[] = [];
-  for (let i = 0; i <= 365; i++) {
+  for (let i = 1; i <= 365; i++) {
     const dateCopy = new Date(currentDate.getTime());
     const newDate = dateCopy.setDate(dateCopy.getDate() + i);
     const dateObj = {
