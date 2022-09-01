@@ -4,9 +4,9 @@ import { DateAvailability } from '../src/types/hotelModels';
 import fs from 'fs/promises';
 import path from 'path';
 
-const generateHotels = (number: number) => {
+const generateHotels = (num: number) => {
   const hotels = [];
-  while (number >= 0) {
+  while (num >= 0) {
     hotels.push({
       id: faker.database.mongodbObjectId(),
       hotelName: faker.company.name(),
@@ -34,14 +34,14 @@ const generateHotels = (number: number) => {
       },
       rooms: generateRooms(25),
     });
-    number--;
+    num--;
   }
   return hotels;
 };
 
-const generateRooms = (number: number) => {
+const generateRooms = (num: number) => {
   const rooms = [];
-  while (number >= 0) {
+  while (num >= 0) {
     rooms.push({
       id: faker.database.mongodbObjectId(),
       priceNight: faker.commerce.price(100, 400, 2, '$'),
@@ -50,7 +50,7 @@ const generateRooms = (number: number) => {
       summary: faker.lorem.sentences(2),
       availability: [...generateAvailability(10)],
     });
-    number--;
+    num--;
   }
   return rooms;
 };
@@ -71,13 +71,13 @@ const generateAvailability = (num: number): DateAvailability[] => {
   return dates;
 };
 
-const generateImages = (number: number) => {
+const generateImages = (num: number) => {
   const images = [];
-  while (number >= 0) {
+  while (num >= 0) {
     images.push({
       url: faker.image.nightlife(400, 250),
     });
-    number--;
+    num--;
   }
   return images;
 };
