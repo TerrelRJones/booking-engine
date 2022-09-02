@@ -32,7 +32,7 @@ const generateHotels = (num: number) => {
         fitnessCenterAccess: faker.datatype.boolean(),
         poolAccess: faker.datatype.boolean(),
       },
-      rooms: generateRooms(25),
+      rooms: generateRooms(10),
     });
     num--;
   }
@@ -51,27 +51,27 @@ const generateRooms = (num: number) => {
       bedType: Object.values(BedSize)[Math.floor(Math.random() * 3)],
       images: generateImages(3),
       summary: faker.lorem.sentences(2),
-      availability: [...generateAvailability(10)],
+      availability: [...generateAvailability()],
     });
     num--;
   }
   return rooms;
 };
 
-const generateAvailability = (num: number): DateAvailability[] => {
-  const dates: DateAvailability[] = [];
-  while (num >= 0) {
-    const date: DateAvailability = {
-      date: faker.date.between(
-        '2022-01-01T00:00:00.000Z',
-        '2023-01-01T00:00:00.000Z',
-      ),
+const generateAvailability = (): DateAvailability[] => {
+  let currentDate = new Date();
+
+  const datesAvailability: DateAvailability[] = [];
+  for (let i = 1; i <= 365; i++) {
+    const dateCopy = new Date(currentDate.getTime());
+    const newDate = dateCopy.setDate(dateCopy.getDate() + i);
+    const dateObj = {
+      date: new Date(newDate),
       isBookable: faker.datatype.boolean(),
     };
-    dates.push(date);
-    num--;
+    datesAvailability.push(dateObj);
   }
-  return dates;
+  return datesAvailability;
 };
 
 const generateImages = (num: number) => {
