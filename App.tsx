@@ -20,7 +20,7 @@ const Stack = createNativeStackNavigator();
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="HotelInfoScreen" component={HotelInfoScreen} />
       </Stack.Navigator>
