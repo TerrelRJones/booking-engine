@@ -1,8 +1,8 @@
-import { faker } from '@faker-js/faker';
 import { BedSize } from '../src/types/hotelModels';
-import { DateAvailability } from '../src/types/hotelModels';
+import { faker } from '@faker-js/faker';
 import fs from 'fs/promises';
 import path from 'path';
+import { DateAvailability } from 'types/hotelModels';
 
 const generateHotels = (num: number) => {
   const hotels = [];
