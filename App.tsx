@@ -8,15 +8,18 @@
  * @format
  */
 import React from 'react';
+import StorybookUIRoot from './.storybook/Storybook';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NativeBaseProvider } from 'native-base';
 import HomeScreen from 'screens/HomeScreen';
 import HotelInfoScreen from 'screens/HotelInfoScreen';
 
+export { StorybookUIRoot as default };
+
 const Stack = createNativeStackNavigator();
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
     <NativeBaseProvider>
       <NavigationContainer>
@@ -29,4 +32,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+// export default App;
