@@ -30,5 +30,5 @@ const App: React.FC = () => {
   );
 };
 
-// export { StorybookUIRoot as default };
-export default App;
+export { StorybookUIRoot as default };
+//export default App;
