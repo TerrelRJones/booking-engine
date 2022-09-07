@@ -36,8 +36,6 @@
     "react": "18.0.0",
     "react-native": "0.69.5",
     "react-native-calendars": "^1.1288.3",
-    "react-native-gesture-handler": "^2.6.0",
-    "react-native-reanimated": "^2.10.0",
     "react-native-safe-area-context": "^3.4.1",
     "react-native-screens": "^3.17.0",
     "react-native-svg": "^12.1.1",
