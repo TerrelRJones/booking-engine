@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import DatePicker from 'components/DatePicker';
 import * as colors from 'const/colors';
 import { Box, Text } from 'native-base';
-import { Agenda, Calendar, CalendarList } from 'react-native-calendars';
 
 const DatesScreen = () => {
   const { goBack } = useNavigation();
@@ -22,7 +22,7 @@ const DatesScreen = () => {
           Go Back
         </Text>
       </Box>
-      <Calendar />
+      <DatePicker />
     </Box>
   );
 };
