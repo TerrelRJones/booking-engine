@@ -1,10 +1,6 @@
-import {
-  BedSize,
-  CalanderAvailability,
-  Hotels,
-} from '../types/hotelModels';
+import { BedSize, CalanderAvailability, Hotels } from '../types/hotelModels';
 
-const hotels: Hotels = {
+export const hotels: Hotels = {
   hotels: [
     {
       id: '1',
@@ -13,7 +9,7 @@ const hotels: Hotels = {
       isBookable: true,
       checkIn: '4:00 PM',
       checkOut: '11:00 AM',
-      url: 'https://www.caesars.com/ballys-las-vegas',
+      url: '#',
       address: {
         street: '3645 Las Vegas Boulevard South',
         city: 'Las Vegas',
@@ -23,7 +19,7 @@ const hotels: Hotels = {
       phone: '877 603-1243',
       images: [
         {
-          url: 'https://www.beachimg.com',
+          url: 'https://loremflickr.com/400/250/city',
         },
       ],
       resortDetails: {

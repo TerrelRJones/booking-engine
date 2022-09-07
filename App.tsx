@@ -8,7 +8,7 @@
  * @format
  */
 import React from 'react';
-import StorybookUIRoot from './.storybook/Storybook';
+import StorybookUIRoot from './.ondevice/Storybook';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NativeBaseProvider } from 'native-base';
