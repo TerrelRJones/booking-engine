@@ -12,7 +12,6 @@
     "jsonServer": "json-server --watch db.json --port 3004",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "reset": "npm start -- --reset-cache",
-    "prestart": "sb-rn-get-stories",
     "storybook-watcher": "sb-rn-watcher"
   },
   "dependencies": {

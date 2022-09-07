@@ -1,7 +1,9 @@
 //add additional screens here
 //replace undefined with params to send
 export interface AppParamList {
+  Home: undefined;
   HotelInfoScreen: undefined;
+  DatesScreen: undefined;
 }
 
 //from react navigation docs
