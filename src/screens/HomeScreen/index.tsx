@@ -27,7 +27,7 @@ const HomeScreen = () => {
         <SearchInput placeHolder="Search Hotels..." />
       </Box>
 
-      <ScrollView pl={3}>
+      <ScrollView pl={3} showsVerticalScrollIndicator={false}>
         <Section header="Most Popular">
           <Carousel hotels={mockHotels.hotels} />
         </Section>

@@ -16,6 +16,8 @@ export const SearchInput = ({ placeHolder }: SearchInputProps) => {
         fontSize={15}
         fontWeight="bold"
         InputRightElement={<SearchIcon mr={3} size={5} />}
+        clearButtonMode="always"
+        keyboardAppearance="dark"
       />
     </Box>
   );
