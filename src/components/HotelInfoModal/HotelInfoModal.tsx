@@ -1,6 +1,11 @@
 import React from 'react';
 import { Box, Button, Text } from 'native-base';
 import { Dimensions } from 'react-native';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+} from 'react-native-reanimated';
 
 interface HotelInfoModalProps {
   name: string;
@@ -13,7 +18,7 @@ interface HotelInfoModalProps {
 }
 
 const textColor = 'warmGray.900';
-const bgColor = 'blueGray.400';
+// const bgColor = 'blueGray.400';
 
 export const HotelInfoModal = ({
   name,
@@ -24,70 +29,92 @@ export const HotelInfoModal = ({
   amenities,
   onPress,
 }: HotelInfoModalProps) => {
-  const { width } = Dimensions.get('screen');
+  const { width, height } = Dimensions.get('screen');
+  const translateY = useSharedValue(0);
+
+  const gesture = Gesture.Pan().onUpdate(e => {
+    translateY.value = e.translationY;
+  });
+
+  const rBottomSheetStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateY: translateY.value }],
+    };
+  });
 
   return (
-    <Box
-      position="absolute"
-      justifyContent="space-between"
-      bottom={0}
-      width={width}
-      height={350}
-      backgroundColor={bgColor}
-      paddingY={2}
-      paddingX={5}
-      marginTop={5}
-      borderTopRadius={25}>
-      <Box>
-        <Box alignItems="center">
-          <Box
-            height={1}
-            width={60}
-            borderRadius={5}
-            marginBottom={3}
-            backgroundColor="black"
-          />
-        </Box>
-        <Text fontSize={25} fontWeight="bold" color={textColor}>
-          {name}
-        </Text>
-        <Text fontWeight="medium" color={textColor}>
-          {address}
-        </Text>
-        <Text fontWeight="medium" color={textColor}>
-          {phone}
-        </Text>
-
-        <Box marginTop={3} flexDirection="row">
-          {amenities.map((item, index) => (
+    <GestureDetector gesture={gesture}>
+      <Animated.View
+        style={[
+          // eslint-disable-next-line react-native/no-inline-styles
+          {
+            position: 'absolute',
+            justifyContent: 'space-between',
+            bottom: 0,
+            width: width,
+            height: height,
+            backgroundColor: 'white',
+            paddingVertical: 2,
+            paddingHorizontal: 10,
+            marginTop: 5,
+            borderTopRightRadius: 25,
+            borderTopLeftRadius: 25,
+            top: height / 1.5,
+          },
+          rBottomSheetStyle,
+        ]}>
+        <Box>
+          <Box alignItems="center">
             <Box
-              key={index}
-              justifyContent="center"
-              alignItems="center"
-              paddingX={2}
-              paddingY={2}
-              height={10}
-              minWidth={60}
-              marginRight={3}
-              borderRadius={10}
-              backgroundColor="white">
-              <Text fontWeight="bold">{item}</Text>
-            </Box>
-          ))}
-        </Box>
-        <Text marginTop={5} fontSize={15} fontWeight="medium">
-          {summary}
-        </Text>
-        <Box flexDirection="row" justifyContent="flex-end">
-          <Text fontSize={20} fontWeight="bold" marginTop={5}>
-            From {price}
+              height={1}
+              width={60}
+              borderRadius={5}
+              marginTop={2}
+              marginBottom={3}
+              backgroundColor="black"
+            />
+          </Box>
+          <Text fontSize={25} fontWeight="bold" color={textColor}>
+            {name}
           </Text>
-        </Box>
-      </Box>
+          <Text fontWeight="medium" color={textColor}>
+            {address}
+          </Text>
+          <Text fontWeight="medium" color={textColor}>
+            {phone}
+          </Text>
 
-      <Box>
-        <Button onPress={onPress}>Select Dates</Button>
-      </Box>
-    </Box>
+          <Box marginTop={3} flexDirection="row">
+            {amenities.map((item, index) => (
+              <Box
+                key={index}
+                justifyContent="center"
+                alignItems="center"
+                paddingX={2}
+                paddingY={2}
+                height={10}
+                minWidth={60}
+                marginRight={3}
+                borderRadius={10}
+                backgroundColor="white">
+                <Text fontWeight="bold">{item}</Text>
+              </Box>
+            ))}
+          </Box>
+          <Text marginTop={5} fontSize={15} fontWeight="medium">
+            {summary}
+          </Text>
+          <Box flexDirection="row" justifyContent="flex-end">
+            <Text fontSize={20} fontWeight="bold" marginTop={5}>
+              From {price}
+            </Text>
+          </Box>
+        </Box>
+
+        <Box>
+          <Button onPress={onPress}>Select Dates</Button>
+        </Box>
+      </Animated.View>
+    </GestureDetector>
   );
 };
