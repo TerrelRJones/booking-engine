@@ -14,7 +14,7 @@ interface HotelInfoModalProps {
   summary: string;
   price: string;
   amenities: string[];
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 const textColor = 'warmGray.900';

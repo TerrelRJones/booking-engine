@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import FullScreenImageSlider from 'components/FullScreenImageSlider';
 import HotelInfoModal from 'components/HotelInfoModal';
-import { Box, Text } from 'native-base';
+import { Box, Button, Text } from 'native-base';
 
 const hotel = {
   id: 'd47ce1ff5d24b74b29f0fdb5',
@@ -112,9 +112,9 @@ const HotelInfoScreen = () => {
           summary={summary}
           amenities={['2 Adults', 'Wifi', 'Pool']}
           price={priceNight}
-          onPress={() => navigate('DatesScreen')}
         />
       </Box>
+      <Button onPress={() => navigate('DatesScreen')}>Select Dates</Button>
     </Box>
   );
 };
