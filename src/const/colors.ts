@@ -1,4 +1,5 @@
-const textColor = 'warmGray.900';
-const bgColor = 'blueGray.400';
-
-export { textColor, bgColor };
+export const COLORS = {
+  textColor: 'white',
+  bgColor: 'blueGray.900',
+  blurbBgColor: 'blueGray.700',
+};
