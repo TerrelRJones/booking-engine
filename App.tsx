@@ -12,7 +12,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { COLORS } from 'const/colors';
-import { Box, NativeBaseProvider } from 'native-base';
+import { Box, NativeBaseProvider, StatusBar } from 'native-base';
 import { Provider } from 'react-redux';
 import DatesScreen from 'screens/DatesScreen';
 import HomeScreen from 'screens/HomeScreen';
@@ -26,6 +26,7 @@ const App: React.FC = () => {
     <Provider store={store}>
       <NativeBaseProvider>
         <Box safeArea flex={1} backgroundColor={COLORS.bgColor}>
+          <StatusBar barStyle="light-content" />
           <NavigationContainer>
             <Stack.Navigator
               initialRouteName="Home"
