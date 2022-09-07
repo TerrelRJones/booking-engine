@@ -35,7 +35,8 @@
     "react-native": "0.69.5",
     "react-native-safe-area-context": "^3.4.1",
     "react-native-screens": "^3.17.0",
-    "react-native-svg": "^12.1.1"
+    "react-native-svg": "^12.1.1",
+    "react-redux": "^8.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

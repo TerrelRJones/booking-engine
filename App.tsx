@@ -12,23 +12,27 @@ import StorybookUIRoot from './.storybook/Storybook';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NativeBaseProvider } from 'native-base';
+import { Provider } from 'react-redux';
 import HomeScreen from 'screens/HomeScreen';
 import HotelInfoScreen from 'screens/HotelInfoScreen';
+import { store } from 'store';
 
 const Stack = createNativeStackNavigator();
 
 const App: React.FC = () => {
   return (
-    <NativeBaseProvider>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="HotelInfoScreen" component={HotelInfoScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </NativeBaseProvider>
+    <Provider store={store}>
+      <NativeBaseProvider>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="HotelInfoScreen" component={HotelInfoScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </NativeBaseProvider>
+    </Provider>
   );
 };
 
-export { StorybookUIRoot as default };
-//export default App;
+//export { StorybookUIRoot as default };
+export default App;
