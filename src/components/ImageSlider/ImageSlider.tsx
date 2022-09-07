@@ -8,9 +8,7 @@ interface FullScreenImageSliderTypes {
   images: RoomImagesType[];
 }
 
-export const FullScreenImageSlider = ({
-  images,
-}: FullScreenImageSliderTypes) => {
+export const ImageSlider = ({ images }: FullScreenImageSliderTypes) => {
   const { width } = Dimensions.get('screen');
 
   return (
@@ -22,7 +20,7 @@ export const FullScreenImageSlider = ({
       pagingEnabled
       keyExtractor={item => item.id}
       renderItem={({ item }) => (
-        <Box width={width} height="100%">
+        <Box width={width} height={250}>
           <Image
             source={{ uri: item.url }}
             resizeMode="cover"

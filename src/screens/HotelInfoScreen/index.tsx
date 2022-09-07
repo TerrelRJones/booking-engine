@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import FullScreenImageSlider from 'components/FullScreenImageSlider';
 import HotelInfoModal from 'components/HotelInfoModal';
-import * as colors from 'const/colors';
+import ImageSlider from 'components/ImageSlider';
+import { COLORS } from 'const/colors';
 import { hotel as mockHotel } from 'mocks/hotelMocks';
 import { Box, Button, Text } from 'native-base';
 
@@ -22,14 +22,14 @@ const HotelInfoScreen = () => {
   const { goBack, navigate } = useNavigation();
 
   return (
-    <Box flex={1} safeArea>
+    <Box flex={1} safeArea backgroundColor={COLORS.bgColor}>
       <Box
         paddingY={2}
-        backgroundColor={colors.bgColor}
+        backgroundColor={COLORS.blurbBgColor}
         justifyContent="space-between"
         flexDirection="row">
         <Text
-          color={colors.textColor}
+          color={COLORS.textColor}
           paddingX={3}
           fontWeight="bold"
           onPress={() => goBack()}>
@@ -38,7 +38,7 @@ const HotelInfoScreen = () => {
       </Box>
       <Box flex="1" position="relative">
         {/* Image Slider  */}
-        <FullScreenImageSlider images={images} />
+        <ImageSlider images={images} />
 
         {/* Modal  */}
         <HotelInfoModal
@@ -49,8 +49,13 @@ const HotelInfoScreen = () => {
           amenities={['2 Adults', 'Wifi', 'Pool']}
           price={priceNight}
         />
+        <Button
+          backgroundColor={COLORS.blurbBgColor}
+          borderRadius={0}
+          onPress={() => navigate('DatesScreen')}>
+          Select Dates
+        </Button>
       </Box>
-      <Button onPress={() => navigate('DatesScreen')}>Select Dates</Button>
     </Box>
   );
 };

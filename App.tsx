@@ -12,19 +12,18 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NativeBaseProvider } from 'native-base';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Provider } from 'react-redux';
 import DatesScreen from 'screens/DatesScreen';
 import HomeScreen from 'screens/HomeScreen';
 import HotelInfoScreen from 'screens/HotelInfoScreen';
+import { store } from 'store';
 
 const Stack = createNativeStackNavigator();
 
 const App: React.FC = () => {
-  const flex = { flex: 1 };
-
   return (
-    <NativeBaseProvider>
-      <GestureHandlerRootView style={flex}>
+    <Provider store={store}>
+      <NativeBaseProvider>
         <NavigationContainer>
           <Stack.Navigator
             initialRouteName="Home"
@@ -34,10 +33,10 @@ const App: React.FC = () => {
             <Stack.Screen name="DatesScreen" component={DatesScreen} />
           </Stack.Navigator>
         </NavigationContainer>
-      </GestureHandlerRootView>
-    </NativeBaseProvider>
+      </NativeBaseProvider>
+    </Provider>
   );
 };
 
-// export { StorybookUIRoot as default };
+//export { StorybookUIRoot as default };
 export default App;
