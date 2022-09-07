@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Image } from 'native-base';
+import { COLORS } from 'const/colors';
+import { Box, Image, Text } from 'native-base';
 
 interface PreviewCardProps {
   imageSrc: string;
@@ -13,10 +14,28 @@ export const PreviewCard = ({
   price,
 }: PreviewCardProps) => {
   return (
-    <Box m={5}>
-      <Image source={{ uri: imageSrc }} alt="Alternate Text" size="xl" />
-      <Box>{hotelName}</Box>
-      <Box>{price}</Box>
+    <Box mr={4} backgroundColor={COLORS.blurbBgColor} borderRadius={5}>
+      <Box h={40} w={40}>
+        <Image
+          source={{ uri: imageSrc }}
+          alt="Alternate Text"
+          height="100%"
+          width="100%"
+          resizeMode="cover"
+          borderTopRadius={5}
+        />
+      </Box>
+      <Box px={3} pb={1}>
+        <Text color={COLORS.textColor} fontWeight="bold" fontSize="lg">
+          {hotelName}
+        </Text>
+        <Text color={COLORS.textColor} fontWeight="medium" lineHeight={0}>
+          From
+        </Text>
+        <Text color={COLORS.textColor} fontWeight="bold" lineHeight={0}>
+          {price}
+        </Text>
+      </Box>
     </Box>
   );
 };
