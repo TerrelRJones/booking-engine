@@ -11,7 +11,7 @@ const DatesScreen = () => {
     <Box flex={1}>
       <Box
         paddingY={2}
-        backgroundColor={COLORS.bgColor}
+        backgroundColor={COLORS.blurbBgColor}
         justifyContent="space-between"
         flexDirection="row">
         <Text
