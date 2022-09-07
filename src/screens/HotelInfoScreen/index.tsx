@@ -22,7 +22,7 @@ const HotelInfoScreen = () => {
   const { goBack, navigate } = useNavigation();
 
   return (
-    <Box flex={1} safeArea backgroundColor={COLORS.bgColor}>
+    <Box flex={1}>
       <Box
         paddingY={2}
         backgroundColor={COLORS.blurbBgColor}

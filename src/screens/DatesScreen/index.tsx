@@ -1,21 +1,21 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import * as colors from 'const/colors';
+import { COLORS } from 'const/colors';
 import { Box, Text } from 'native-base';
-import { Agenda, Calendar, CalendarList } from 'react-native-calendars';
+import { Calendar } from 'react-native-calendars';
 
 const DatesScreen = () => {
   const { goBack } = useNavigation();
 
   return (
-    <Box flex={1} safeArea>
+    <Box flex={1}>
       <Box
         paddingY={2}
-        backgroundColor={colors.bgColor}
+        backgroundColor={COLORS.bgColor}
         justifyContent="space-between"
         flexDirection="row">
         <Text
-          color={colors.textColor}
+          color={COLORS.textColor}
           paddingX={3}
           fontWeight="bold"
           onPress={() => goBack()}>

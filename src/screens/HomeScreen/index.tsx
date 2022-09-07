@@ -8,7 +8,7 @@ const HomeScreen = () => {
   //make call with RTKQ here using hook thing
 
   return (
-    <Box flex={1} safeArea>
+    <Box flex={1}>
       <Section header="TestHeader">
         <Carousel hotels={mockHotels.hotels} />
       </Section>
