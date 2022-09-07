@@ -1,11 +1,8 @@
 import React from 'react';
-import { Box, Button, Text } from 'native-base';
+import HotelInfoBlurb from './HotelInfoBlurb';
+import { COLORS } from 'const/colors';
+import { Box, ScrollView, Text } from 'native-base';
 import { Dimensions } from 'react-native';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-} from 'react-native-reanimated';
 
 interface HotelInfoModalProps {
   name: string;
@@ -17,9 +14,6 @@ interface HotelInfoModalProps {
   onPress?: () => void;
 }
 
-const textColor = 'warmGray.900';
-// const bgColor = 'blueGray.400';
-
 export const HotelInfoModal = ({
   name,
   address,
@@ -27,63 +21,31 @@ export const HotelInfoModal = ({
   summary,
   price,
   amenities,
-  onPress,
 }: HotelInfoModalProps) => {
-  const { width, height } = Dimensions.get('screen');
-  const translateY = useSharedValue(0);
-
-  const gesture = Gesture.Pan().onUpdate(e => {
-    translateY.value = e.translationY;
-  });
-
-  const rBottomSheetStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ translateY: translateY.value }],
-    };
-  });
+  const { width } = Dimensions.get('screen');
 
   return (
-    <GestureDetector gesture={gesture}>
-      <Animated.View
-        style={[
-          // eslint-disable-next-line react-native/no-inline-styles
-          {
-            position: 'absolute',
-            justifyContent: 'space-between',
-            bottom: 0,
-            width: width,
-            height: height,
-            backgroundColor: 'white',
-            paddingVertical: 2,
-            paddingHorizontal: 10,
-            marginTop: 5,
-            borderTopRightRadius: 25,
-            borderTopLeftRadius: 25,
-            top: height / 1.5,
-          },
-          rBottomSheetStyle,
-        ]}>
-        <Box>
-          <Box alignItems="center">
-            <Box
-              height={1}
-              width={60}
-              borderRadius={5}
-              marginTop={2}
-              marginBottom={3}
-              backgroundColor="black"
-            />
-          </Box>
-          <Text fontSize={25} fontWeight="bold" color={textColor}>
+    <ScrollView
+      width={width}
+      height="100%"
+      backgroundColor={COLORS.bgColor}
+      paddingY={2}
+      paddingX={2}>
+      <Box>
+        <HotelInfoBlurb>
+          <Text fontSize={25} fontWeight="bold" color={COLORS.textColor}>
             {name}
           </Text>
-          <Text fontWeight="medium" color={textColor}>
+          <Text fontWeight="medium" color={COLORS.textColor}>
             {address}
           </Text>
-          <Text fontWeight="medium" color={textColor}>
+          <Text fontWeight="medium" color={COLORS.textColor}>
             {phone}
           </Text>
+        </HotelInfoBlurb>
 
+        <HotelInfoBlurb>
+          <Text color={COLORS.textColor}>Amenities</Text>
           <Box marginTop={3} flexDirection="row">
             {amenities.map((item, index) => (
               <Box
@@ -101,20 +63,23 @@ export const HotelInfoModal = ({
               </Box>
             ))}
           </Box>
-          <Text marginTop={5} fontSize={15} fontWeight="medium">
+        </HotelInfoBlurb>
+        <HotelInfoBlurb>
+          <Text color={COLORS.textColor}>Summary</Text>
+          <Text color={COLORS.textColor} fontSize={15} fontWeight="medium">
             {summary}
           </Text>
-          <Box flexDirection="row" justifyContent="flex-end">
-            <Text fontSize={20} fontWeight="bold" marginTop={5}>
-              From {price}
-            </Text>
-          </Box>
-        </Box>
-
-        <Box>
-          <Button onPress={onPress}>Select Dates</Button>
-        </Box>
-      </Animated.View>
-    </GestureDetector>
+        </HotelInfoBlurb>
+      </Box>
+      <Box flexDirection="row" justifyContent="flex-end">
+        <Text
+          color={COLORS.textColor}
+          fontSize={20}
+          fontWeight="bold"
+          marginTop={5}>
+          From {price}
+        </Text>
+      </Box>
+    </ScrollView>
   );
 };
