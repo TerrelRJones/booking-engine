@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { COLORS } from 'const/colors';
 import { compareDesc, eachDayOfInterval, format } from 'date-fns';
 import { CalendarList, DateData } from 'react-native-calendars';
-import { COLORS } from 'const/colors';
 
 export interface MarkedDatesProps {
   [key: string]: {
@@ -25,6 +25,7 @@ export const useDateRangeValue = () => {
           break;
 
         case 'reset':
+          console.log('RESET');
           setStartDay(new Date(date?.dateString));
           setEndDay(null);
           break;

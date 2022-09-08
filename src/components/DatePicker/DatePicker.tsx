@@ -12,7 +12,10 @@ export const DatePicker = () => {
   const handleDayPress = useCallback(
     (date: DateData) => {
       if (!startDay) return setDate(date, 'start');
-      else if (!endDay) return setDate(date, 'end');
+      if (compareDesc(startDay, new Date(date.dateString)) < 0) {
+        return setDate(date, 'reset');
+      }
+      if (!endDay) return setDate(date, 'end');
       return setDate(date, 'reset');
     },
 
