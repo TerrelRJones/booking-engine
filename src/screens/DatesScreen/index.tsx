@@ -6,8 +6,6 @@ import { COLORS } from 'const/colors';
 import { Box, Text } from 'native-base';
 
 const DatesScreen = () => {
-  const { goBack } = useNavigation();
-
   return (
     <Box flex={1} safeArea backgroundColor={COLORS.bgColor}>
       <Box

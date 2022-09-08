@@ -30,7 +30,8 @@ export const HotelInfoModal = ({
       height="100%"
       backgroundColor={COLORS.bgColor}
       paddingY={2}
-      paddingX={2}>
+      paddingX={2}
+      showsVerticalScrollIndicator={false}>
       <Box>
         <HotelInfoBlurb>
           <Text fontSize={25} fontWeight="bold" color={COLORS.textColor}>

@@ -11,7 +11,8 @@ import React from 'react';
 // import StorybookUIRoot from './.ondevice/Storybook';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NativeBaseProvider } from 'native-base';
+import { COLORS } from 'const/colors';
+import { Box, NativeBaseProvider, StatusBar } from 'native-base';
 import { Provider } from 'react-redux';
 import DatesScreen from 'screens/DatesScreen';
 import HomeScreen from 'screens/HomeScreen';
@@ -24,15 +25,21 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <NativeBaseProvider>
-        <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName="Home"
-            screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="HotelInfoScreen" component={HotelInfoScreen} />
-            <Stack.Screen name="DatesScreen" component={DatesScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <Box safeArea flex={1} backgroundColor={COLORS.bgColor}>
+          <StatusBar barStyle="light-content" />
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="Home"
+              screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="Home" component={HomeScreen} />
+              <Stack.Screen
+                name="HotelInfoScreen"
+                component={HotelInfoScreen}
+              />
+              <Stack.Screen name="DatesScreen" component={DatesScreen} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </Box>
       </NativeBaseProvider>
     </Provider>
   );

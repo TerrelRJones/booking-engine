@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { PreviewCard } from 'components/PreviewCard/PreviewCard';
-import { Box, FlatList } from 'native-base';
+import { FlatList } from 'native-base';
 import { TouchableOpacity } from 'react-native';
 import { Hotel } from 'types/hotelModels';
 
@@ -19,11 +19,11 @@ export const Carousel = ({ hotels }: CarouselProps) => {
 
   return (
     <>
-      <Box>This is the carousel</Box>
       <FlatList
         data={mockHotels}
         horizontal
         showsHorizontalScrollIndicator={false}
+        pagingEnabled
         renderItem={({
           item: {
             hotelName,
