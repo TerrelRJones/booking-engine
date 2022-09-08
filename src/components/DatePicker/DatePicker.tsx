@@ -1,41 +1,35 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import CheckDate from 'components/CheckDate';
 import { COLORS } from 'const/colors';
-import { Box, Flex } from 'native-base';
+import { compareDesc, eachDayOfInterval, format } from 'date-fns';
+import { useDateRangeValue } from 'hooks/useDateRangeValue';
+import { Flex } from 'native-base';
 import { CalendarList, DateData } from 'react-native-calendars';
-
-const useDateRangeValue = () => {
-  const [startDay, setStartDay] = useState<Date | null>(null);
-  const [endDay, setEndDay] = useState<Date | null>(null);
-
-  const setDate = (date: DateData | undefined, type: 'start' | 'end') => {
-    //comparisons in here
-  };
-
-  const markedDates = useMemo(() => {
-    const tweenDates = [];
-    return {};
-  }, []);
-
-  return { startDay, endDay, markedDates, setDate };
-};
 
 export const DatePicker = () => {
   const { startDay, endDay, markedDates, setDate } = useDateRangeValue();
 
-  const handleDayPress = useCallback((date: DateData) => {
-    if (!startDay) setDate(date, 'start');
-    else if (!endDay) setDate(date, 'end');
-    else setDate(date, 'start');
+  const handleDayPress = useCallback(
+    (date: DateData) => {
+      if (!startDay) return setDate(date, 'start');
+      else if (!endDay) return setDate(date, 'end');
+      return setDate(date, 'reset');
+    },
 
-    //if select tween date, resets to start date
-  }, []);
+    [startDay, endDay],
+  );
 
   return (
     <React.Fragment>
-      <Flex direction="row" justify="space-between" mx={1} my={1}>
-        <CheckDate checkType="In" date="2022-09-08" />
-        <CheckDate checkType="Out" date="2022-09-10" />
+      <Flex direction="row" justify="space-between" mx={5} my={2}>
+        <CheckDate
+          checkType="In"
+          date={(startDay && format(startDay, 'yyyy-MM-dd')) || ' '}
+        />
+        <CheckDate
+          checkType="Out"
+          date={(endDay && format(endDay, 'yyyy-MM-dd')) || ' '}
+        />
       </Flex>
       <CalendarList
         theme={{
@@ -48,15 +42,7 @@ export const DatePicker = () => {
         pastScrollRange={0}
         futureScrollRange={1}
         markingType={'period'}
-        markedDates={{
-          '2022-09-22': { startingDay: true, color: COLORS.secondaryBgColor },
-          '2022-09-23': { color: COLORS.secondaryBgColor },
-          '2022-09-30': {
-            selected: true,
-            endingDay: true,
-            color: COLORS.secondaryBgColor,
-          },
-        }}
+        markedDates={markedDates}
         onDayPress={handleDayPress}
         hideArrows={false}
         calendarHeight={1}
