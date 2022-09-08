@@ -9,7 +9,7 @@ interface HotelInfoBlurbProps {
 const HotelInfoBlurb = ({ children }: HotelInfoBlurbProps) => {
   return (
     <Box
-      backgroundColor={COLORS.blurbBgColor}
+      backgroundColor={COLORS.secondaryBgColor}
       paddingX={4}
       paddingY={2}
       borderRadius={4}
