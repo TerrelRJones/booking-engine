@@ -37,7 +37,7 @@ const HotelInfoScreen = () => {
           price={priceNight}
         />
         <Button
-          backgroundColor={COLORS.blurbBgColor}
+          backgroundColor={COLORS.secondaryBgColor}
           borderRadius={0}
           onPress={() => navigate('DatesScreen')}>
           Select Dates

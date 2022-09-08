@@ -14,7 +14,7 @@ export const TopNavigation = ({ screenTitle }: TopNavigationProps) => {
     <Box
       paddingY={2}
       paddingX={3}
-      backgroundColor={COLORS.blurbBgColor}
+      backgroundColor={COLORS.secondaryBgColor}
       flexDirection="row"
       justifyContent="space-between"
       alignContent="center">

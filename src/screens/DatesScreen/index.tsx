@@ -1,13 +1,15 @@
 import React from 'react';
+import Button from 'components/Button/index';
+import DatePicker from 'components/DatePicker';
 import TopNavigation from 'components/TopNavigation';
+import { COLORS } from 'const/colors';
 import { Box } from 'native-base';
-import { Calendar } from 'react-native-calendars';
 
 const DatesScreen = () => {
   return (
-    <Box flex={1}>
-      <TopNavigation screenTitle="Dates" />
-      <Calendar />
+    <Box backgroundColor={COLORS.bgColor}>
+      <TopNavigation screenTitle="DatesScreen" />
+      <DatePicker />
     </Box>
   );
 };

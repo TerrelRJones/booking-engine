@@ -12,7 +12,10 @@ interface CarouselProps {
 export const Carousel = ({ hotels }: CarouselProps) => {
   const { navigate } = useNavigation();
 
-  const mockHotels = [...hotels, ...hotels, ...hotels];
+  const mockHotels = [...hotels, ...hotels, ...hotels].map((hotel, index) => ({
+    ...hotel,
+    id: index,
+  }));
 
   return (
     <>
