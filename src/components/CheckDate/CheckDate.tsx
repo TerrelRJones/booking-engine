@@ -16,5 +16,3 @@ export const CheckDate = ({ checkType, date }: CheckDateProps) => {
     </Box>
   );
 };
-
-
