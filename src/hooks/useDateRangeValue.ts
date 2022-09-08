@@ -25,13 +25,12 @@ export const useDateRangeValue = () => {
           break;
 
         case 'reset':
-          console.log('RESET');
           setStartDay(new Date(date?.dateString));
           setEndDay(null);
           break;
 
         default:
-          console.log('error');
+          throw 'something went wrong';
       }
     },
     [startDay, endDay],
