@@ -25,7 +25,7 @@ const HotelInfoScreen = () => {
     <Box flex={1} safeArea backgroundColor={COLORS.bgColor}>
       <Box
         paddingY={2}
-        backgroundColor={COLORS.blurbBgColor}
+        backgroundColor={COLORS.secondaryBgColor}
         justifyContent="space-between"
         flexDirection="row">
         <Text
@@ -50,7 +50,7 @@ const HotelInfoScreen = () => {
           price={priceNight}
         />
         <Button
-          backgroundColor={COLORS.blurbBgColor}
+          backgroundColor={COLORS.secondaryBgColor}
           borderRadius={0}
           onPress={() => navigate('DatesScreen')}>
           Select Dates
