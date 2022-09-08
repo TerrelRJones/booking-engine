@@ -2,9 +2,10 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import HotelInfoModal from 'components/HotelInfoModal';
 import ImageSlider from 'components/ImageSlider';
+import TopNavigation from 'components/TopNavigation';
 import { COLORS } from 'const/colors';
 import { hotel as mockHotel } from 'mocks/hotelMocks';
-import { Box, Button, Text } from 'native-base';
+import { Box, Button } from 'native-base';
 
 const {
   hotelName,
@@ -19,28 +20,14 @@ const formAddress = () => {
 };
 
 const HotelInfoScreen = () => {
-  const { goBack, navigate } = useNavigation();
+  const { navigate } = useNavigation();
 
   return (
     <Box flex={1}>
-      <Box
-        paddingY={2}
-        backgroundColor={COLORS.blurbBgColor}
-        justifyContent="space-between"
-        flexDirection="row">
-        <Text
-          color={COLORS.textColor}
-          paddingX={3}
-          fontWeight="bold"
-          onPress={() => goBack()}>
-          Go Back
-        </Text>
-      </Box>
+      <TopNavigation screenTitle="Hotel Information" />
       <Box flex="1" position="relative">
-        {/* Image Slider  */}
         <ImageSlider images={images} />
 
-        {/* Modal  */}
         <HotelInfoModal
           name={hotelName}
           address={formAddress()}
