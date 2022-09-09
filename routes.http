@@ -4,5 +4,5 @@ GET http://localhost:3004/hotels HTTP/1.1
 
 ### ALL DETAILS FOR ONE HOTEL BY ID (includes all rooms)
 ### scheme/domain/subdirectory/:id
-GET http://localhost:3004/hotels/b12425d07fba7d45dd89711d HTTP/1.1
+GET http://localhost:3004/hotels/2e5fdb731aeee61a97d7bfc6 HTTP/1.1
 

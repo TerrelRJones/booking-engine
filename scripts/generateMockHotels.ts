@@ -94,7 +94,9 @@ const generateImages = (num: number) => {
   const images = [];
   while (num >= 0) {
     images.push({
-      url: faker.image.city(400, 250),
+      id: faker.database.mongodbObjectId(),
+      url: faker.image.city(400, 250, true),
+      alt: 'hotel-images',
     });
     num--;
   }

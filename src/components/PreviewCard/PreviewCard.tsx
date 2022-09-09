@@ -14,8 +14,12 @@ export const PreviewCard = ({
   price,
 }: PreviewCardProps) => {
   return (
-    <Box mr={4} backgroundColor={COLORS.secondaryBgColor} borderRadius={5}>
-      <Box h={40} w={40}>
+    <Box
+      mr={4}
+      backgroundColor={COLORS.secondaryBgColor}
+      borderRadius={5}
+      minWidth={250}>
+      <Box h={40} maxWidth="100%">
         <Image
           source={{ uri: imageSrc }}
           alt="Alternate Text"
