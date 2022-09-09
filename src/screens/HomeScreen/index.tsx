@@ -3,7 +3,7 @@ import { Carousel } from 'components/Carousel/Carousel';
 import HomeScreenTitle from 'components/HomeScreenTitle';
 import SearchInput from 'components/SearchInput';
 import { Section } from 'components/Section/Section';
-import { UserPhoto } from 'components/UserPhoto/UserPhoto';
+import UserPhoto from 'components/UserPhoto';
 import { COLORS } from 'const/colors';
 import { hotels as mockHotels } from 'mocks/hotelMocks';
 import { Box, ScrollView } from 'native-base';
