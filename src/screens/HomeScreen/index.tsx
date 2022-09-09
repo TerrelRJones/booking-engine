@@ -1,13 +1,13 @@
-import React, { useCallback, useEffect } from 'react';
+import React from 'react';
 import { Carousel } from 'components/Carousel/Carousel';
 import HomeScreenTitle from 'components/HomeScreenTitle';
 import SearchInput from 'components/SearchInput';
 import { Section } from 'components/Section/Section';
 import { UserPhoto } from 'components/UserPhoto/UserPhoto';
 import { COLORS } from 'const/colors';
+import { useRandomizeHotels } from 'hooks/useRandomizeHotels';
 import { Box, ScrollView } from 'native-base';
 import { useGetHotelsQuery } from 'services/hotelService';
-import { Hotel, Hotels } from 'types/hotelModels';
 
 const image =
   'https://media.architecturaldigest.com/photos/603fd63ce5e723e4f559fb16/16:9/w_2560%2Cc_limit/1300769954';
@@ -15,13 +15,7 @@ const image =
 const HomeScreen = () => {
   const { data: hotels } = useGetHotelsQuery(null);
   //pull user info from db? maybe add to mock json-server or maybe get fancy
-
-  const randomizeHotels = useCallback(
-    (hotels: Hotel[]) => {
-      return [...hotels].sort(() => 0.5 - Math.random());
-    },
-    [hotels],
-  );
+  const { randomizeHotels } = useRandomizeHotels(hotels);
 
   return (
     <Box flex={1} backgroundColor={COLORS.bgColor}>
