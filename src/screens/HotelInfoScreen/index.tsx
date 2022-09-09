@@ -1,11 +1,12 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import HotelInfoModal from 'components/HotelInfoModal';
 import ImageSlider from 'components/ImageSlider';
 import TopNavigation from 'components/TopNavigation';
 import { COLORS } from 'const/colors';
 import { hotel as mockHotel } from 'mocks/hotelMocks';
 import { Box, Button } from 'native-base';
+import { useGetHotelQuery } from 'services/hotelService';
 
 const {
   hotelName,
@@ -21,6 +22,12 @@ const formAddress = () => {
 
 const HotelInfoScreen = () => {
   const { navigate } = useNavigation();
+  const {
+    params: { id },
+  }: any = useRoute();
+
+  const { data } = useGetHotelQuery(id);
+
 
   return (
     <Box flex={1}>
