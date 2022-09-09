@@ -10,7 +10,12 @@ interface SectionProps {
 export const Section = ({ header, children }: SectionProps) => {
   return (
     <Box mt={5}>
-      <Text color={COLORS.textColor} fontWeight="bold" mb={2} fontSize={20}>
+      <Text
+        color={COLORS.textColor}
+        fontWeight="bold"
+        mb={2}
+        fontSize={20}
+        pl={3}>
         {header}
       </Text>
       <Box>{children}</Box>

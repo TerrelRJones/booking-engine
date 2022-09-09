@@ -17,6 +17,7 @@ export const Carousel = ({ hotels }: CarouselProps) => {
       <FlatList
         data={hotels}
         horizontal
+        snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
         pagingEnabled
         renderItem={({

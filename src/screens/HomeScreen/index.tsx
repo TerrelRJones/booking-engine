@@ -29,7 +29,7 @@ const HomeScreen = () => {
         <SearchInput placeHolder="Search Hotels..." />
       </Box>
 
-      <ScrollView pl={3} showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Section header="Most Popular">
           <Carousel hotels={hotels} />
         </Section>
