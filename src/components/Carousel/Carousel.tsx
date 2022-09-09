@@ -10,7 +10,7 @@ interface CarouselProps {
 }
 
 export const Carousel = ({ hotels }: CarouselProps) => {
-  const { navigate }: any = useNavigation();
+  const { navigate } = useNavigation();
 
   return (
     <>

@@ -18,8 +18,9 @@ import DatesScreen from 'screens/DatesScreen';
 import HomeScreen from 'screens/HomeScreen';
 import HotelInfoScreen from 'screens/HotelInfoScreen';
 import { store } from 'store';
+import { AppParamList } from 'types/navigation';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<AppParamList>();
 
 const App: React.FC = () => {
   return (

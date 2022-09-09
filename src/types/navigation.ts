@@ -1,10 +1,12 @@
 //add additional screens here
 //replace undefined with params to send
-export interface AppParamList {
+export type AppParamList = {
   Home: undefined;
-  HotelInfoScreen: undefined;
+  HotelInfoScreen: {
+    id: string;
+  };
   DatesScreen: undefined;
-}
+};
 
 //from react navigation docs
 //declaration merging
