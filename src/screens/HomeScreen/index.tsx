@@ -5,7 +5,7 @@ import SearchInput from 'components/SearchInput';
 import { Section } from 'components/Section/Section';
 import UserPhoto from 'components/UserPhoto';
 import { COLORS } from 'const/colors';
-import { hotels as mockHotels } from 'mocks/hotelMocks';
+import { useRandomizeHotels } from 'hooks/useRandomizeHotels';
 import { Box, ScrollView } from 'native-base';
 import { useGetHotelsQuery } from 'services/hotelService';
 
@@ -15,6 +15,7 @@ const image =
 const HomeScreen = () => {
   const { data: hotels } = useGetHotelsQuery(null);
   //pull user info from db? maybe add to mock json-server or maybe get fancy
+  const { randomizeHotels } = useRandomizeHotels(hotels);
 
   return (
     <Box flex={1} backgroundColor={COLORS.bgColor}>
@@ -31,13 +32,14 @@ const HomeScreen = () => {
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <Section header="Most Popular">
-          <Carousel hotels={hotels} />
+          {hotels && <Carousel hotels={randomizeHotels(hotels)} />}
         </Section>
+
         <Section header="Near You">
-          <Carousel hotels={hotels} />
+          {hotels && <Carousel hotels={randomizeHotels(hotels)} />}
         </Section>
         <Section header="All">
-          <Carousel hotels={hotels} />
+          {hotels && <Carousel hotels={randomizeHotels(hotels)} />}
         </Section>
       </ScrollView>
     </Box>
