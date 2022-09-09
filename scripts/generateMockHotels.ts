@@ -21,7 +21,7 @@ const generateHotels = (num: number) => {
         zip: faker.address.zipCodeByState('NV'),
       },
       phone: faker.phone.number('877 ###-####'),
-      images: generateImages(5),
+      images: generateImages(1),
       resortDetails: {
         wifi: faker.datatype.boolean(),
         fitnessCenterAccess: faker.datatype.boolean(),

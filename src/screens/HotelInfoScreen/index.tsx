@@ -10,13 +10,9 @@ import { useGetHotelQuery } from 'services/hotelService';
 import { Hotel } from 'types/hotelModels';
 import { AppParamList } from 'types/navigation';
 
-// const {
-//   hotelName,
-//   rooms: [{ priceNight, images }],
-//   address: { state, street, zip, city },
-//   summary,
-//   phone,
-// } = mockHotel;
+const {
+  rooms: [{ images }],
+} = mockHotel;
 
 export interface Address {
   address: {
@@ -46,7 +42,7 @@ const HotelInfoScreen: React.FC<
       <TopNavigation screenTitle="Hotel Information" />
       {data && (
         <Box flex="1" position="relative">
-          <ImageSlider images={data.images} />
+          <ImageSlider images={images} />
           <HotelInfoModal
             name={data.hotelName}
             address={formAddress(data)}
