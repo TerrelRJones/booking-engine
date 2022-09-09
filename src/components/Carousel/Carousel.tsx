@@ -12,26 +12,28 @@ interface CarouselProps {
 export const Carousel = ({ hotels }: CarouselProps) => {
   const { navigate } = useNavigation();
 
-  const mockHotels = [...hotels, ...hotels, ...hotels].map((hotel, index) => ({
-    ...hotel,
-    id: index,
-  }));
-
   return (
     <>
       <FlatList
-        data={mockHotels}
+        data={hotels}
         horizontal
+        snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
         pagingEnabled
         renderItem={({
           item: {
+            id,
             hotelName,
             images: [{ url }],
             rooms: [{ priceNight }],
           },
         }) => (
-          <TouchableOpacity onPress={() => navigate('HotelInfoScreen')}>
+          <TouchableOpacity
+            onPress={() => {
+              navigate('HotelInfoScreen', {
+                id,
+              });
+            }}>
             <PreviewCard
               imageSrc={url}
               hotelName={hotelName}

@@ -7,12 +7,14 @@ import { UserPhoto } from 'components/UserPhoto/UserPhoto';
 import { COLORS } from 'const/colors';
 import { hotels as mockHotels } from 'mocks/hotelMocks';
 import { Box, ScrollView } from 'native-base';
+import { useGetHotelsQuery } from 'services/hotelService';
 
 const image =
   'https://media.architecturaldigest.com/photos/603fd63ce5e723e4f559fb16/16:9/w_2560%2Cc_limit/1300769954';
 
 const HomeScreen = () => {
-  //make call with RTKQ here using hook thing
+  const { data: hotels } = useGetHotelsQuery(null);
+  //pull user info from db? maybe add to mock json-server or maybe get fancy
 
   return (
     <Box flex={1} backgroundColor={COLORS.bgColor}>
@@ -27,15 +29,15 @@ const HomeScreen = () => {
         <SearchInput placeHolder="Search Hotels..." />
       </Box>
 
-      <ScrollView pl={3} showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Section header="Most Popular">
-          <Carousel hotels={mockHotels.hotels} />
+          <Carousel hotels={hotels} />
         </Section>
         <Section header="Near You">
-          <Carousel hotels={mockHotels.hotels} />
+          <Carousel hotels={hotels} />
         </Section>
         <Section header="All">
-          <Carousel hotels={mockHotels.hotels} />
+          <Carousel hotels={hotels} />
         </Section>
       </ScrollView>
     </Box>

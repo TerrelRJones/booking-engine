@@ -1,8 +1,7 @@
-import { BedSize } from '../src/types/hotelModels';
+import { BedSize, DateAvailability } from '../src/types/hotelModels';
 import { faker } from '@faker-js/faker';
 import fs from 'fs/promises';
 import path from 'path';
-import { DateAvailability } from 'types/hotelModels';
 
 const generateHotels = (num: number) => {
   const hotels = [];
@@ -22,11 +21,7 @@ const generateHotels = (num: number) => {
         zip: faker.address.zipCodeByState('NV'),
       },
       phone: faker.phone.number('877 ###-####'),
-      images: [
-        { url: faker.image.city(400, 250) },
-        { url: faker.image.city(400, 250) },
-        { url: faker.image.city(400, 250) },
-      ],
+      images: generateImages(1),
       resortDetails: {
         wifi: faker.datatype.boolean(),
         fitnessCenterAccess: faker.datatype.boolean(),
@@ -49,7 +44,28 @@ const generateRooms = (num: number) => {
       id: faker.database.mongodbObjectId(),
       priceNight: faker.commerce.price(100, 400, 2, '$'),
       bedType: Object.values(BedSize)[Math.floor(Math.random() * 3)],
-      images: generateImages(3),
+      images: [
+        {
+          id: faker.database.mongodbObjectId(),
+          url: 'https://cdn.britannica.com/96/115096-050-5AFDAF5D/Bellagio-Hotel-Casino-Las-Vegas.jpg',
+          alt: 'casino',
+        },
+        {
+          id: faker.database.mongodbObjectId(),
+          url: 'https://img1.10bestmedia.com/Images/Photos/378649/Park-Hyatt-New-York-Manhattan-Sky-Suite-Master-Bedroom-low-res_54_990x660.jpg',
+          alt: 'room',
+        },
+        {
+          id: faker.database.mongodbObjectId(),
+          url: 'https://www.hospitalitynet.org/picture/xxl_153098435.jpg?t=1552639660',
+          alt: 'bathroom',
+        },
+        {
+          id: faker.database.mongodbObjectId(),
+          url: 'https://sandinmysuitcase.com/wp-content/uploads/2021/09/Sybaris-Northbrook-Chicago-Majestic-Suite.jpg.webp',
+          alt: 'pool',
+        },
+      ],
       summary: faker.lorem.sentences(2),
       availability: [...generateAvailability()],
     });
@@ -78,7 +94,9 @@ const generateImages = (num: number) => {
   const images = [];
   while (num >= 0) {
     images.push({
-      url: faker.image.nightlife(400, 250),
+      id: faker.database.mongodbObjectId(),
+      url: faker.image.city(400, 250, true),
+      alt: 'hotel-images',
     });
     num--;
   }
