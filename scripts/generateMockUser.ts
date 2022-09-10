@@ -8,7 +8,7 @@ export const image =
 export const generateUser = () => {
   return {
     id: faker.database.mongodbObjectId(),
-    name: 'Lebron James',
+    name: 'LeBron James',
     image,
     hotelBooked: [],
     dates: [],
