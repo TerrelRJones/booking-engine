@@ -5,9 +5,14 @@ export const endpoint = {
   getHotels: (params: string) => `/hotels/${params}`,
 };
 
-export const transformResult = (result: any) => {
-  return {};
-};
+export interface UserResponse {
+  id: string;
+  name: string;
+  image: string;
+  hotelBooked: [];
+  dates: [];
+  totalDuel: [];
+}
 
 export const hotelApi = createApi({
   reducerPath: 'hotelApi',
@@ -15,16 +20,16 @@ export const hotelApi = createApi({
   endpoints: builder => ({
     getHotels: builder.query({
       query: params => endpoint.getHotels('/'),
-      // when need transform use this format for additional queries
-      // transformResponse: (response: Hotels) => {
-      //   return response.hotels.map(transformResult);
-      // },
     }),
     getHotel: builder.query({
       query: params => endpoint.getHotels(params),
+    }),
+    getUser: builder.query<UserResponse, null>({
+      query: params => '/user',
     }),
   }),
 });
 
 export const { useGetHotelsQuery } = hotelApi;
 export const { useGetHotelQuery } = hotelApi;
+export const { useGetUserQuery } = hotelApi;

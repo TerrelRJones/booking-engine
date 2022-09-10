@@ -3,7 +3,7 @@ import { COLORS } from 'const/colors';
 import { Box, Text } from 'native-base';
 
 interface HomeScreenTitleProps {
-  name: string;
+  name?: string;
 }
 
 export const HomeScreenTitle = ({ name }: HomeScreenTitleProps) => {
