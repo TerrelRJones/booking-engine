@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Image } from 'native-base';
 
 interface UserPhotoProps {
-  img: string;
+  img?: string;
 }
 
 export const UserPhoto = ({ img }: UserPhotoProps) => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Carousel } from 'components/Carousel/Carousel';
 import HomeScreenTitle from 'components/HomeScreenTitle';
 import SearchInput from 'components/SearchInput';
@@ -7,26 +7,24 @@ import UserPhoto from 'components/UserPhoto';
 import { COLORS } from 'const/colors';
 import { useRandomizeHotels } from 'hooks/useRandomizeHotels';
 import { Box, ScrollView } from 'native-base';
-import { useGetHotelsQuery } from 'services/hotelService';
-
-const image =
-  'https://media.architecturaldigest.com/photos/603fd63ce5e723e4f559fb16/16:9/w_2560%2Cc_limit/1300769954';
+import { useGetHotelsQuery, useGetUserQuery } from 'services/hotelService';
 
 const HomeScreen = () => {
   const { data: hotels } = useGetHotelsQuery(null);
-  //pull user info from db? maybe add to mock json-server or maybe get fancy
+  const { data: user } = useGetUserQuery(null);
   const { randomizeHotels } = useRandomizeHotels(hotels);
+
+  const firstName = useMemo(() => {
+    return user?.name.split(' ')[0];
+  }, [user]);
 
   return (
     <Box flex={1} backgroundColor={COLORS.bgColor}>
       <Box px={3} mt={5} mb={2}>
-        {/* user photo  */}
         <Box flexDirection="row" justifyContent="flex-end">
-          <UserPhoto img={image} />
+          <UserPhoto img={user?.image} />
         </Box>
-
-        <HomeScreenTitle name="LeBron" />
-
+        <HomeScreenTitle name={firstName} />
         <SearchInput placeHolder="Search Hotels..." />
       </Box>
 
@@ -34,7 +32,6 @@ const HomeScreen = () => {
         <Section header="Most Popular">
           {hotels && <Carousel hotels={randomizeHotels(hotels)} />}
         </Section>
-
         <Section header="Near You">
           {hotels && <Carousel hotels={randomizeHotels(hotels)} />}
         </Section>
