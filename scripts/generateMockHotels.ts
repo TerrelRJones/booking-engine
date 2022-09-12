@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 import fs from 'fs/promises';
 import path from 'path';
 
-const generateHotels = (num: number) => {
+export const generateHotels = (num: number) => {
   const hotels = [];
   while (num >= 0) {
     hotels.push({
@@ -31,10 +31,7 @@ const generateHotels = (num: number) => {
     });
     num--;
   }
-  const hotelsObj = {
-    hotels,
-  };
-  return hotelsObj;
+  return hotels;
 };
 
 const generateRooms = (num: number) => {
@@ -103,14 +100,23 @@ const generateImages = (num: number) => {
   return images;
 };
 
+const image =
+  'https://media.architecturaldigest.com/photos/603fd63ce5e723e4f559fb16/16:9/w_2560%2Cc_limit/1300769954';
+
+const user = {
+  image,
+};
+
 async function main() {
-  const hotels = generateHotels(10);
+  const hotelsObj = {
+    hotels: generateHotels(10),
+  };
+
   await fs.writeFile(
     path.join(__dirname, '..', 'db.json'),
-    JSON.stringify(hotels, null, 2),
+    JSON.stringify(hotelsObj, null, 2),
   );
 }
 
-//to execute
 //ts-node ./scripts/generateMockHotels.ts
 main();

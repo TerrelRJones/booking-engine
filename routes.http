@@ -6,3 +6,5 @@ GET http://localhost:3004/hotels HTTP/1.1
 ### scheme/domain/subdirectory/:id
 GET http://localhost:3004/hotels/2e5fdb731aeee61a97d7bfc6 HTTP/1.1
 
+### GET USER
+GET http://localhost:3004/user
