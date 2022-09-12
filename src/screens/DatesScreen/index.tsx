@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from 'components/Button/index';
 import DatePicker from 'components/DatePicker';
 import TopNavigation from 'components/TopNavigation';
 import { COLORS } from 'const/colors';
