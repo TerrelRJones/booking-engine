@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { COLORS } from 'const/colors';
 import { compareDesc, eachDayOfInterval, format } from 'date-fns';
-import { CalendarList, DateData } from 'react-native-calendars';
+import { DateData } from 'react-native-calendars';
 
 export interface MarkedDatesProps {
   [key: string]: {
@@ -33,7 +33,7 @@ export const useDateRangeValue = () => {
           throw 'something went wrong';
       }
     },
-    [startDay, endDay],
+    [],
   );
 
   const markedDates = useMemo(() => {
