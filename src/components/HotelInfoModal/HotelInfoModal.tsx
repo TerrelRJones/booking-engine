@@ -1,8 +1,11 @@
 import React from 'react';
 import HotelInfoBlurb from './HotelInfoBlurb';
+import { useNavigation } from '@react-navigation/native';
+import RoomPreviewCard from 'components/RoomPreviewCard';
 import { COLORS } from 'const/colors';
 import { Box, ScrollView, Text } from 'native-base';
 import { Dimensions } from 'react-native';
+import { Room } from 'types/hotelModels';
 
 interface HotelInfoModalProps {
   name: string;
@@ -11,6 +14,7 @@ interface HotelInfoModalProps {
   summary: string;
   price: string;
   amenities: string[];
+  rooms: Room[];
   onPress?: () => void;
 }
 
@@ -19,10 +23,11 @@ export const HotelInfoModal = ({
   address,
   phone,
   summary,
-  price,
   amenities,
+  rooms,
 }: HotelInfoModalProps) => {
   const { width } = Dimensions.get('screen');
+  const { navigate } = useNavigation();
 
   return (
     <ScrollView
@@ -71,15 +76,21 @@ export const HotelInfoModal = ({
             {summary}
           </Text>
         </HotelInfoBlurb>
-      </Box>
-      <Box flexDirection="row" justifyContent="flex-end">
-        <Text
-          color={COLORS.textColor}
-          fontSize={20}
-          fontWeight="bold"
-          marginTop={5}>
-          From {price}
+
+        <Text color={COLORS.textColor} mb={1} fontSize={20} fontWeight="bold">
+          Rooms
         </Text>
+
+        {rooms.map(data => (
+          <HotelInfoBlurb key={data.id}>
+            <RoomPreviewCard
+              bedType={data.bedType}
+              summary={data.summary}
+              price={data.priceNight}
+              onPress={() => navigate('RoomInfoScreen', { roomData: data })}
+            />
+          </HotelInfoBlurb>
+        ))}
       </Box>
     </ScrollView>
   );
