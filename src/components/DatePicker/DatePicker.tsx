@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback } from 'react';
 import CheckDate from 'components/CheckDate';
 import { COLORS } from 'const/colors';
-import { compareDesc, eachDayOfInterval, format } from 'date-fns';
+import { compareDesc, format } from 'date-fns';
 import { useDateRangeValue } from 'hooks/useDateRangeValue';
 import { Flex } from 'native-base';
 import { CalendarList, DateData } from 'react-native-calendars';
@@ -11,15 +11,19 @@ export const DatePicker = () => {
 
   const handleDayPress = useCallback(
     (date: DateData) => {
-      if (!startDay) return setDate(date, 'start');
+      if (!startDay) {
+        return setDate(date, 'start');
+      }
       if (compareDesc(startDay, new Date(date.dateString)) < 0) {
         return setDate(date, 'reset');
       }
-      if (!endDay) return setDate(date, 'end');
+      if (!endDay) {
+        return setDate(date, 'end');
+      }
       return setDate(date, 'reset');
     },
 
-    [startDay, endDay],
+    [startDay, endDay, setDate],
   );
 
   return (

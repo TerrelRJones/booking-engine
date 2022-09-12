@@ -30,13 +30,13 @@ const HomeScreen = () => {
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <Section header="Most Popular">
-          {hotels && <Carousel hotels={randomizeHotels(hotels)} />}
+          {hotels && <Carousel hotels={randomizeHotels()} />}
         </Section>
         <Section header="Near You">
-          {hotels && <Carousel hotels={randomizeHotels(hotels)} />}
+          {hotels && <Carousel hotels={randomizeHotels()} />}
         </Section>
         <Section header="All">
-          {hotels && <Carousel hotels={randomizeHotels(hotels)} />}
+          {hotels && <Carousel hotels={randomizeHotels()} />}
         </Section>
       </ScrollView>
     </Box>
