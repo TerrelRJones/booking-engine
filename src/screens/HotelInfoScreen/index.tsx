@@ -27,7 +27,6 @@ const HotelInfoScreen: React.FC<HotelInfoScreenProps> = ({
   route: {
     params: { id },
   },
-  navigation: { navigate },
 }) => {
   const { data } = useGetHotelQuery(id);
 
@@ -37,9 +36,9 @@ const HotelInfoScreen: React.FC<HotelInfoScreenProps> = ({
 
   return (
     <Box flex={1}>
-      <TopNavigation screenTitle="Hotel Information" />
       {data && (
         <Box flex="1" position="relative">
+          <TopNavigation screenTitle={data.hotelName} />
           <ImageSlider images={images} />
           <HotelInfoModal
             name={data.hotelName}
@@ -48,13 +47,8 @@ const HotelInfoScreen: React.FC<HotelInfoScreenProps> = ({
             summary={data.summary}
             amenities={['2 Adults', 'Wifi', 'Pool']}
             price={data.rooms[0].priceNight}
+            rooms={data.rooms}
           />
-          <Button
-            backgroundColor={COLORS.secondaryBgColor}
-            borderRadius={0}
-            onPress={() => navigate('DatesScreen')}>
-            Select Dates
-          </Button>
         </Box>
       )}
     </Box>

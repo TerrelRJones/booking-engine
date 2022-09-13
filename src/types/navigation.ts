@@ -11,6 +11,7 @@ export type AppParamList = {
     id?: string;
     datesArr: string[];
   };
+  RoomInfoScreen: { roomData: Room };
   DatesScreen: undefined;
   StripeScreen: {
     datesArr: string[];
