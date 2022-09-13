@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Carousel } from 'components/Carousel/Carousel';
 import HomeScreenTitle from 'components/HomeScreenTitle';
 import SearchInput from 'components/SearchInput';
@@ -8,11 +9,16 @@ import { COLORS } from 'const/colors';
 import { useRandomizeHotels } from 'hooks/useRandomizeHotels';
 import { Box, ScrollView } from 'native-base';
 import { useGetHotelsQuery, useGetUserQuery } from 'services/hotelService';
+import { AppParamList } from 'types/navigation';
 
-const HomeScreen = () => {
+const HomeScreen: React.FC<NativeStackScreenProps<AppParamList, 'Home'>> = ({
+  navigation,
+}) => {
   const { data: hotels } = useGetHotelsQuery(null);
   const { data: user } = useGetUserQuery(null);
   const { randomizeHotels } = useRandomizeHotels(hotels);
+
+  const { navigate } = navigation;
 
   const firstName = useMemo(() => {
     return user?.name.split(' ')[0];
@@ -29,14 +35,34 @@ const HomeScreen = () => {
       </Box>
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Section header="Most Popular">
-          {hotels && <Carousel hotels={randomizeHotels()} />}
+        <Section
+          header="Most Popular"
+          onPress={() =>
+            navigate('HotelCategoryScreen', { navigationTitle: 'Most Popular' })
+          }>
+          {hotels && (
+            <Carousel horizontal pagingEnabled hotels={randomizeHotels()} />
+          )}
         </Section>
-        <Section header="Near You">
-          {hotels && <Carousel hotels={randomizeHotels()} />}
+
+        <Section
+          header="Near You"
+          onPress={() =>
+            navigate('HotelCategoryScreen', { navigationTitle: 'Near You' })
+          }>
+          {hotels && (
+            <Carousel horizontal pagingEnabled hotels={randomizeHotels()} />
+          )}
         </Section>
-        <Section header="All">
-          {hotels && <Carousel hotels={randomizeHotels()} />}
+
+        <Section
+          header="All"
+          onPress={() =>
+            navigate('HotelCategoryScreen', { navigationTitle: 'Near You' })
+          }>
+          {hotels && (
+            <Carousel horizontal pagingEnabled hotels={randomizeHotels()} />
+          )}
         </Section>
       </ScrollView>
     </Box>

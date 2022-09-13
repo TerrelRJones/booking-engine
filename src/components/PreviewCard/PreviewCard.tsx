@@ -21,6 +21,7 @@ export const PreviewCard = ({
         mx={3}
         backgroundColor={COLORS.secondaryBgColor}
         borderRadius={5}
+        mb={5}
         position="relative">
         <Box h={40}>
           <Image

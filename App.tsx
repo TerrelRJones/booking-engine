@@ -16,6 +16,7 @@ import { Box, NativeBaseProvider, StatusBar } from 'native-base';
 import { Provider } from 'react-redux';
 import DatesScreen from 'screens/DatesScreen';
 import HomeScreen from 'screens/HomeScreen';
+import HotelCategoryScreen from 'screens/HotelCategoryScreen';
 import HotelInfoScreen from 'screens/HotelInfoScreen';
 import RoomInfoScreen from 'screens/RoomInfoScreen';
 import { store } from 'store';
@@ -34,6 +35,10 @@ const App: React.FC = () => {
               initialRouteName="Home"
               screenOptions={{ headerShown: false }}>
               <Stack.Screen name="Home" component={HomeScreen} />
+              <Stack.Screen
+                name="HotelCategoryScreen"
+                component={HotelCategoryScreen}
+              />
               <Stack.Screen
                 name="HotelInfoScreen"
                 component={HotelInfoScreen}

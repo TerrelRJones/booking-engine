@@ -9,6 +9,7 @@ export type AppParamList = {
   };
   RoomInfoScreen: { roomData: Room };
   DatesScreen: undefined;
+  HotelCategoryScreen: { navigationTitle: string };
 };
 
 //from react navigation docs

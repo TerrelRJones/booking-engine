@@ -7,19 +7,25 @@ import { Hotel } from 'types/hotelModels';
 
 interface CarouselProps {
   hotels: Hotel[];
+  horizontal?: boolean;
+  pagingEnabled?: boolean;
 }
 
-export const Carousel = ({ hotels }: CarouselProps) => {
+export const Carousel = ({
+  hotels,
+  horizontal,
+  pagingEnabled,
+}: CarouselProps) => {
   const { navigate } = useNavigation();
 
   return (
     <>
       <FlatList
         data={hotels}
-        horizontal
+        horizontal={horizontal ? horizontal : false}
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
-        pagingEnabled
+        pagingEnabled={pagingEnabled ? pagingEnabled : false}
         renderItem={({
           item: {
             id,
