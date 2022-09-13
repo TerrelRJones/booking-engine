@@ -1,14 +1,22 @@
 //add additional screens here
 import { Room } from './hotelModels';
+import {
+  NativeStackNavigationProp,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack';
 
 //replace undefined with params to send
 export type AppParamList = {
   Home: undefined;
   HotelInfoScreen: {
-    id: string;
+    id?: string;
+    datesArr?: string[];
   };
   RoomInfoScreen: { roomData: Room };
   DatesScreen: undefined;
+  StripeScreen: {
+    datesArr: string[];
+  };
   HotelCategoryScreen: { navigationTitle: string };
 };
 
@@ -19,3 +27,9 @@ declare global {
     interface RootParamList extends AppParamList {}
   }
 }
+
+export type AppNavigationProps<RouteName extends keyof AppParamList> =
+  NativeStackNavigationProp<AppParamList, RouteName>;
+
+export interface ScreenProps<RouteName extends keyof AppParamList>
+  extends NativeStackScreenProps<AppParamList, RouteName> {}

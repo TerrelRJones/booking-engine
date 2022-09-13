@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run start\" \"npm run ios\" \"npm run jsonServer\"",
+    "dev:reset": "concurrently \"npm run reset\" \"npm run ios\" \"npm run jsonServer\"",
     "dev:storybook": "concurrently \"npm run start\" \"npm run prestart\" \"npm run ios\"",
     "android": "react-native run-android",
     "ios": "react-native run-ios",

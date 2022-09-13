@@ -3,12 +3,16 @@ import { useNavigation } from '@react-navigation/native';
 import { PreviewCard } from 'components/PreviewCard/PreviewCard';
 import { FlatList } from 'native-base';
 import { TouchableOpacity } from 'react-native';
-import { Hotel } from 'types/hotelModels';
+import { HotelsResponse } from 'types/hotelModels';
 
 interface CarouselProps {
+<<<<<<< HEAD
   hotels: Hotel[];
   horizontal?: boolean;
   pagingEnabled?: boolean;
+=======
+  hotels: HotelsResponse;
+>>>>>>> main
 }
 
 export const Carousel = ({

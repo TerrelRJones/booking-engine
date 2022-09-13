@@ -2,13 +2,41 @@ import React from 'react';
 import DatePicker from 'components/DatePicker';
 import TopNavigation from 'components/TopNavigation';
 import { COLORS } from 'const/colors';
-import { Box } from 'native-base';
+import { useDateRangeValue } from 'hooks/useDateRangeValue';
+import { Box, Button } from 'native-base';
+import { ScreenProps } from 'types/navigation';
 
-const DatesScreen = () => {
+interface DateScreenProps extends ScreenProps<'DatesScreen'> {}
+
+const DatesScreen: React.FC<DateScreenProps> = ({
+  navigation: { navigate },
+}) => {
+  const {
+    startDay,
+    endDay,
+    markedDates: { markedDatesObj, datesArr },
+    setDate,
+  } = useDateRangeValue();
+
   return (
     <Box backgroundColor={COLORS.bgColor}>
       <TopNavigation screenTitle="DatesScreen" />
-      <DatePicker />
+      <DatePicker
+        startDay={startDay}
+        endDay={endDay}
+        markedDatesObj={markedDatesObj}
+        setDate={setDate}
+      />
+      <Button
+        backgroundColor={COLORS.secondaryBgColor}
+        borderRadius={0}
+        onPress={() =>
+          navigate('StripeScreen', {
+            datesArr,
+          })
+        }>
+        Select Dates
+      </Button>
     </Box>
   );
 };
