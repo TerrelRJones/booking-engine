@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, FlatList, Image } from 'native-base';
 import { Dimensions } from 'react-native';
-
-type RoomImagesType = { id: string; url: string; alt: string };
+// clashed with Image component above
+import { Image as RoomImgType } from 'types/hotelModels';
 
 interface FullScreenImageSliderTypes {
-  images: RoomImagesType[];
+  images: RoomImgType[];
 }
 
 export const ImageSlider = ({ images }: FullScreenImageSliderTypes) => {

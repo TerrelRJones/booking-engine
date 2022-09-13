@@ -17,6 +17,7 @@ import { Provider } from 'react-redux';
 import DatesScreen from 'screens/DatesScreen';
 import HomeScreen from 'screens/HomeScreen';
 import HotelInfoScreen from 'screens/HotelInfoScreen';
+import RoomInfoScreen from 'screens/RoomInfoScreen';
 import { store } from 'store';
 import { AppParamList } from 'types/navigation';
 
@@ -37,6 +38,7 @@ const App: React.FC = () => {
                 name="HotelInfoScreen"
                 component={HotelInfoScreen}
               />
+              <Stack.Screen name="RoomInfoScreen" component={RoomInfoScreen} />
               <Stack.Screen name="DatesScreen" component={DatesScreen} />
             </Stack.Navigator>
           </NavigationContainer>
