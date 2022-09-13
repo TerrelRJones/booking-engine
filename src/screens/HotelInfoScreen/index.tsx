@@ -2,24 +2,15 @@ import React from 'react';
 import HotelInfoModal from 'components/HotelInfoModal';
 import ImageSlider from 'components/ImageSlider';
 import TopNavigation from 'components/TopNavigation';
-import { COLORS } from 'const/colors';
 import { hotel as mockHotel } from 'mocks/hotelMocks';
-import { Box, Button } from 'native-base';
+import { Box } from 'native-base';
 import { useGetHotelQuery } from 'services/hotelService';
+import { Address } from 'types/hotelModels';
 import { ScreenProps } from 'types/navigation';
 
 const {
   rooms: [{ images }],
 } = mockHotel;
-
-export interface Address {
-  address: {
-    street: string;
-    city: string;
-    state: string;
-    zip: string;
-  };
-}
 
 interface HotelInfoScreenProps extends ScreenProps<'HotelInfoScreen'> {}
 

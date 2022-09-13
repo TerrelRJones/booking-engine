@@ -1,9 +1,11 @@
 import { useCallback } from 'react';
-import { Hotel } from 'types/hotelModels';
+import { HotelsResponse } from 'types/hotelModels';
 
-export const useRandomizeHotels = (hotels: Hotel[]) => {
+export const useRandomizeHotels = (hotels: HotelsResponse) => {
   const randomizeHotels = useCallback(() => {
-    return [...hotels].sort(() => 0.5 - Math.random());
+    if (hotels) {
+      return [...hotels].sort(() => 0.5 - Math.random());
+    }
   }, [hotels]);
   return { randomizeHotels };
 };

@@ -6,7 +6,7 @@ import { useDateRangeValue } from 'hooks/useDateRangeValue';
 import { Box, Button } from 'native-base';
 import { ScreenProps } from 'types/navigation';
 
-interface DateScreenProps extends ScreenProps<'StripeScreen'> {}
+interface DateScreenProps extends ScreenProps<'DatesScreen'> {}
 
 const DatesScreen: React.FC<DateScreenProps> = ({
   navigation: { navigate },
@@ -31,7 +31,7 @@ const DatesScreen: React.FC<DateScreenProps> = ({
         backgroundColor={COLORS.secondaryBgColor}
         borderRadius={0}
         onPress={() =>
-          navigate('HotelInfoScreen', {
+          navigate('StripeScreen', {
             datesArr,
           })
         }>

@@ -1,4 +1,5 @@
 //add additional screens here
+import { Room } from './hotelModels';
 import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
@@ -9,7 +10,7 @@ export type AppParamList = {
   Home: undefined;
   HotelInfoScreen: {
     id?: string;
-    datesArr: string[];
+    datesArr?: string[];
   };
   RoomInfoScreen: { roomData: Room };
   DatesScreen: undefined;

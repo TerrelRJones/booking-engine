@@ -1,31 +1,23 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Hotels } from 'types/hotelModels';
+import { Hotel, HotelArg, HotelsResponse } from 'types/hotelModels';
+import { UserResponse } from 'types/user';
 
 export const endpoint = {
-  getHotels: (params: string) => `/hotels/${params}`,
+  getHotels: (params: HotelArg) => `/hotels/${params}`,
 };
-
-export interface UserResponse {
-  id: string;
-  name: string;
-  image: string;
-  hotelBooked: [];
-  dates: [];
-  totalDuel: [];
-}
 
 export const hotelApi = createApi({
   reducerPath: 'hotelApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3004' }),
   endpoints: builder => ({
-    getHotels: builder.query({
-      query: params => endpoint.getHotels('/'),
+    getHotels: builder.query<HotelsResponse, null>({
+      query: () => endpoint.getHotels('/'),
     }),
-    getHotel: builder.query({
+    getHotel: builder.query<Hotel, HotelArg>({
       query: params => endpoint.getHotels(params),
     }),
     getUser: builder.query<UserResponse, null>({
-      query: params => '/user',
+      query: () => '/user',
     }),
   }),
 });

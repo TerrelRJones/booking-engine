@@ -1,16 +1,19 @@
-import React, { FC } from 'react';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React from 'react';
 import ImageSlider from 'components/ImageSlider';
 import TopNavigation from 'components/TopNavigation';
 import { COLORS } from 'const/colors';
 import { Box, Button, Text } from 'native-base';
-import { AppParamList } from 'types/navigation';
+import { ScreenProps } from 'types/navigation';
 
-const RoomInfoScreen: FC<
-  NativeStackScreenProps<AppParamList, 'RoomInfoScreen'>
-> = ({ navigation, route }) => {
-  const { priceNight, bedType, images, summary } = route.params.roomData;
-  const { navigate } = navigation;
+interface RoomInfoScreenProps extends ScreenProps<'RoomInfoScreen'> {}
+
+const RoomInfoScreen: React.FC<RoomInfoScreenProps> = ({
+  navigation: { navigate },
+  route: {
+    params: { roomData },
+  },
+}) => {
+  const { priceNight, bedType, images, summary } = roomData;
 
   return (
     <Box flex={1}>

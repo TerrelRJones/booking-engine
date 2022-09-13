@@ -4,6 +4,15 @@ export interface Image {
   alt: string;
 }
 
+export interface Address {
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+  };
+}
+
 export interface ResortFeatures {
   wifi: boolean;
   fitnessCenterAccess: boolean;
@@ -58,3 +67,7 @@ export interface Hotel {
 export interface Hotels {
   hotels: Hotel[];
 }
+
+export type HotelsResponse = Hotel[] | undefined;
+
+export type HotelArg = string | undefined;
