@@ -58,7 +58,7 @@ export const useDateRangeValue = () => {
       markedDatesObj[date] = { color: COLORS.secondaryBgColor };
     }
 
-    return markedDatesObj;
+    return { markedDatesObj, datesArr };
   }, [startDay, endDay]);
 
   return { startDay, endDay, markedDates, setDate };

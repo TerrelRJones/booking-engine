@@ -1,5 +1,4 @@
 import React from 'react';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import HotelInfoModal from 'components/HotelInfoModal';
 import ImageSlider from 'components/ImageSlider';
 import TopNavigation from 'components/TopNavigation';
@@ -7,8 +6,7 @@ import { COLORS } from 'const/colors';
 import { hotel as mockHotel } from 'mocks/hotelMocks';
 import { Box, Button } from 'native-base';
 import { useGetHotelQuery } from 'services/hotelService';
-import { Hotel } from 'types/hotelModels';
-import { AppParamList } from 'types/navigation';
+import { ScreenProps } from 'types/navigation';
 
 const {
   rooms: [{ images }],
@@ -23,9 +21,9 @@ export interface Address {
   };
 }
 
-const HotelInfoScreen: React.FC<
-  NativeStackScreenProps<AppParamList, 'HotelInfoScreen'>
-> = ({
+interface HotelInfoScreenProps extends ScreenProps<'HotelInfoScreen'> {}
+
+const HotelInfoScreen: React.FC<HotelInfoScreenProps> = ({
   route: {
     params: { id },
   },

@@ -2,13 +2,23 @@ import React, { useCallback } from 'react';
 import CheckDate from 'components/CheckDate';
 import { COLORS } from 'const/colors';
 import { compareDesc, format } from 'date-fns';
-import { useDateRangeValue } from 'hooks/useDateRangeValue';
+import { MarkedDatesProps } from 'hooks/useDateRangeValue';
 import { Flex } from 'native-base';
 import { CalendarList, DateData } from 'react-native-calendars';
 
-export const DatePicker = () => {
-  const { startDay, endDay, markedDates, setDate } = useDateRangeValue();
+interface DatePickerProps {
+  startDay: Date | null;
+  endDay: Date | null;
+  markedDatesObj: MarkedDatesProps;
+  setDate: (date: DateData, type: 'start' | 'end' | 'reset') => void;
+}
 
+export const DatePicker = ({
+  startDay,
+  endDay,
+  markedDatesObj,
+  setDate,
+}: DatePickerProps) => {
   const handleDayPress = useCallback(
     (date: DateData) => {
       if (!startDay) {
@@ -49,7 +59,7 @@ export const DatePicker = () => {
         pastScrollRange={0}
         futureScrollRange={1}
         markingType={'period'}
-        markedDates={markedDates}
+        markedDates={markedDatesObj}
         onDayPress={handleDayPress}
         hideArrows={false}
         calendarHeight={1}
