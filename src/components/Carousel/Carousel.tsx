@@ -3,10 +3,10 @@ import { useNavigation } from '@react-navigation/native';
 import { PreviewCard } from 'components/PreviewCard/PreviewCard';
 import { FlatList } from 'native-base';
 import { TouchableOpacity } from 'react-native';
-import { Hotel } from 'types/hotelModels';
+import { HotelsResponse } from 'types/hotelModels';
 
 interface CarouselProps {
-  hotels: Hotel[];
+  hotels: HotelsResponse;
 }
 
 export const Carousel = ({ hotels }: CarouselProps) => {
