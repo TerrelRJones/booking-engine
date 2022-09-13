@@ -6,13 +6,9 @@ import { TouchableOpacity } from 'react-native';
 import { HotelsResponse } from 'types/hotelModels';
 
 interface CarouselProps {
-<<<<<<< HEAD
-  hotels: Hotel[];
+  hotels: HotelsResponse;
   horizontal?: boolean;
   pagingEnabled?: boolean;
-=======
-  hotels: HotelsResponse;
->>>>>>> main
 }
 
 export const Carousel = ({
