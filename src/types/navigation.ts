@@ -17,6 +17,8 @@ export type AppParamList = {
   DatesScreen: undefined;
   PaymentScreen: {
     datesArr: string[];
+    startDay: Date | null;
+    endDay: Date | null;
   };
 };
 
