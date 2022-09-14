@@ -8,12 +8,9 @@ import { ScreenProps } from 'types/navigation';
 
 interface HotelCategoryScreenProps extends ScreenProps<'HotelCategoryScreen'> {}
 
-const HotelCategoryScreen: React.FC<HotelCategoryScreenProps> = ({
-  route: {
-    params: { navigationTitle },
-  },
-}) => {
+const HotelCategoryScreen: React.FC<HotelCategoryScreenProps> = ({ route }) => {
   const { data: hotels } = useGetHotelsQuery(null);
+  const { navigationTitle } = route.params;
 
   return (
     <Box flex={1} backgroundColor={COLORS.bgColor}>
