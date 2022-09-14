@@ -14,7 +14,6 @@ export const SearchInput = ({
 }: SearchInputProps) => {
   return (
     <Box mt={3}>
-      {/* TODO: show keyboard pop-up on ios  */}
       <Input
         placeholder={placeHolder}
         color={COLORS.textColor}

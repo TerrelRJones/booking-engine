@@ -17,6 +17,7 @@ export type AppParamList = {
   StripeScreen: {
     datesArr: string[];
   };
+  HotelCategoryScreen: { navigationTitle: string };
 };
 
 //from react navigation docs
