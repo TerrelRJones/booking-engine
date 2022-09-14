@@ -6,6 +6,7 @@ import {
 } from '@react-navigation/native-stack';
 
 //replace undefined with params to send
+//navigate prop string and object to send
 export type AppParamList = {
   Home: undefined;
   HotelInfoScreen: {
@@ -14,7 +15,7 @@ export type AppParamList = {
   };
   RoomInfoScreen: { roomData: Room };
   DatesScreen: undefined;
-  StripeScreen: {
+  PaymentScreen: {
     datesArr: string[];
   };
 };

@@ -31,7 +31,7 @@ const DatesScreen: React.FC<DateScreenProps> = ({
         backgroundColor={COLORS.secondaryBgColor}
         borderRadius={0}
         onPress={() =>
-          navigate('StripeScreen', {
+          navigate('PaymentScreen', {
             datesArr,
           })
         }>
