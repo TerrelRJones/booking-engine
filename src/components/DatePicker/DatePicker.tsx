@@ -1,9 +1,7 @@
 import React, { useCallback } from 'react';
-import CheckDate from 'components/CheckDate';
 import { COLORS } from 'const/colors';
-import { compareDesc, format } from 'date-fns';
+import { compareDesc } from 'date-fns';
 import { MarkedDatesProps } from 'hooks/useDateRangeValue';
-import { Flex } from 'native-base';
 import { CalendarList, DateData } from 'react-native-calendars';
 
 interface DatePickerProps {
@@ -37,33 +35,22 @@ export const DatePicker = ({
   );
 
   return (
-    <React.Fragment>
-      <Flex direction="row" justify="space-between" mx={5} my={2}>
-        <CheckDate
-          checkType="In"
-          date={(startDay && format(startDay, 'yyyy-MM-dd')) || ' '}
-        />
-        <CheckDate
-          checkType="Out"
-          date={(endDay && format(endDay, 'yyyy-MM-dd')) || ' '}
-        />
-      </Flex>
-      <CalendarList
-        theme={{
-          calendarBackground: COLORS.bgColor,
-          textSectionTitleColor: COLORS.textColor,
-          dayTextColor: COLORS.textColor,
-          monthTextColor: COLORS.textColor,
-          textMonthFontWeight: 'bold',
-        }}
-        pastScrollRange={0}
-        futureScrollRange={1}
-        markingType={'period'}
-        markedDates={markedDatesObj}
-        onDayPress={handleDayPress}
-        hideArrows={false}
-        calendarHeight={1}
-      />
-    </React.Fragment>
+    <CalendarList
+      theme={{
+        calendarBackground: COLORS.bgColor,
+        textSectionTitleColor: COLORS.textColor,
+        dayTextColor: COLORS.textColor,
+        monthTextColor: COLORS.textColor,
+        textMonthFontWeight: 'bold',
+      }}
+      pastScrollRange={0}
+      futureScrollRange={1}
+      markingType={'period'}
+      markedDates={markedDatesObj}
+      onDayPress={handleDayPress}
+      hideArrows={false}
+      calendarHeight={1}
+      scrollEnabled={false}
+    />
   );
 };

@@ -19,7 +19,7 @@ const DatesScreen: React.FC<DateScreenProps> = ({
   } = useDateRangeValue();
 
   return (
-    <Box backgroundColor={COLORS.bgColor}>
+    <Box backgroundColor={COLORS.bgColor} flex={1}>
       <TopNavigation screenTitle="DatesScreen" />
       <DatePicker
         startDay={startDay}
@@ -31,11 +31,13 @@ const DatesScreen: React.FC<DateScreenProps> = ({
         backgroundColor={COLORS.secondaryBgColor}
         borderRadius={0}
         onPress={() =>
-          navigate('StripeScreen', {
+          navigate('PaymentScreen', {
             datesArr,
+            startDay,
+            endDay,
           })
         }>
-        Select Dates
+        Choose Dates
       </Button>
     </Box>
   );
