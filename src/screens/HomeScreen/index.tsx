@@ -12,13 +12,11 @@ import { useGetHotelsQuery, useGetUserQuery } from 'services/hotelService';
 import { AppParamList } from 'types/navigation';
 
 const HomeScreen: React.FC<NativeStackScreenProps<AppParamList, 'Home'>> = ({
-  navigation,
+  navigation: { navigate },
 }) => {
   const { data: hotels } = useGetHotelsQuery(null);
   const { data: user } = useGetUserQuery(null);
   const { randomizeHotels } = useRandomizeHotels(hotels);
-
-  const { navigate } = navigation;
 
   const firstName = useMemo(() => {
     return user?.name.split(' ')[0];
