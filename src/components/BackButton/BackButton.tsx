@@ -1,6 +1,8 @@
 import React from 'react';
 import { COLORS } from 'const/colors';
-import { Text } from 'native-base';
+import { Box } from 'native-base';
+import { TouchableOpacity } from 'react-native';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 interface BackButtonProps {
   onPress: () => void;
@@ -8,8 +10,10 @@ interface BackButtonProps {
 
 export const BackButton = ({ onPress }: BackButtonProps) => {
   return (
-    <Text left={0} color={COLORS.textColor} fontWeight="bold" onPress={onPress}>
-      Go Back
-    </Text>
+    <TouchableOpacity onPress={onPress}>
+      <Box>
+        <Entypo name="chevron-left" size={25} color={COLORS.textColor} />
+      </Box>
+    </TouchableOpacity>
   );
 };

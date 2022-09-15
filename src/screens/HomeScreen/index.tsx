@@ -8,6 +8,7 @@ import UserPhoto from 'components/UserPhoto';
 import { COLORS } from 'const/colors';
 import { useRandomizeHotels } from 'hooks/useRandomizeHotels';
 import { Box, ScrollView } from 'native-base';
+import { TouchableOpacity } from 'react-native';
 import { useGetHotelsQuery, useGetUserQuery } from 'services/hotelService';
 import { AppParamList } from 'types/navigation';
 
@@ -24,13 +25,15 @@ const HomeScreen: React.FC<NativeStackScreenProps<AppParamList, 'Home'>> = ({
 
   return (
     <Box flex={1} backgroundColor={COLORS.bgColor}>
-      <Box px={3} mt={5} mb={2}>
-        <Box flexDirection="row" justifyContent="flex-end">
-          <UserPhoto img={user?.image} />
+      <TouchableOpacity onPress={() => navigate('ProfileTab')}>
+        <Box px={3} mt={5} mb={2}>
+          <Box flexDirection="row" justifyContent="flex-end">
+            <UserPhoto img={user?.image} />
+          </Box>
+          <HomeScreenTitle name={firstName} />
+          <SearchInput placeHolder="Search Hotels..." />
         </Box>
-        <HomeScreenTitle name={firstName} />
-        <SearchInput placeHolder="Search Hotels..." />
-      </Box>
+      </TouchableOpacity>
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <Section
