@@ -20,6 +20,7 @@
     "@react-native-async-storage/async-storage": "^1.17.10",
     "@react-native-community/datetimepicker": "^6.3.2",
     "@react-native-community/slider": "^4.3.1",
+    "@react-navigation/bottom-tabs": "^6.3.3",
     "@react-navigation/native": "^6.0.12",
     "@react-navigation/native-stack": "^6.8.0",
     "@reduxjs/toolkit": "^1.8.5",
@@ -41,6 +42,7 @@
     "react-native-safe-area-context": "^3.4.1",
     "react-native-screens": "^3.17.0",
     "react-native-svg": "^12.1.1",
+    "react-native-vector-icons": "^9.2.0",
     "react-redux": "^8.0.2"
   },
   "devDependencies": {
@@ -53,6 +55,7 @@
     "@types/jest": "^26.0.23",
     "@types/node": "^18.7.14",
     "@types/react-native": "^0.69.5",
+    "@types/react-native-vector-icons": "^6.4.12",
     "@types/react-test-renderer": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",

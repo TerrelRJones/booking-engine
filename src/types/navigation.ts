@@ -21,6 +21,9 @@ export type AppParamList = {
     endDay: Date | null;
   };
   HotelCategoryScreen: { navigationTitle: string };
+  HomeTab: undefined;
+  BookingsTab: undefined;
+  ProfileTab: undefined;
 };
 
 //from react navigation docs
